@@ -25,13 +25,13 @@
     NSString *name = [self.textField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [[WeatherController sharedInstance]fetchWeatherWithName:name completion:^(Weather *weather) {
         
-        NSString *locationName = [NSString stringWithFormat:@"Location: %@",weather.locationName];
+        NSString *locationName = [NSString stringWithFormat:@"%@",weather.locationName];
         
         NSString *weatherMain = [NSString stringWithFormat:@"%@", weather.weatherMain];
         
         NSString *description = [NSString stringWithFormat:@"%@", weather.weatherDescription];
         
-        NSString *weatherTemp = [NSString stringWithFormat:@"%@", weather.weatherTemp];
+        NSString *weatherTemp = [NSString stringWithFormat:@"%@º", weather.weatherTemp];
         
         self.locationLabel.text = locationName;
         self.mainLabel.text = weatherMain;
@@ -46,6 +46,7 @@
 
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = [UIColor colorWithRed:0.286 green:0.725 blue:0.976 alpha:1];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
